@@ -27,6 +27,10 @@
     <%= f.label :department %><br>
     <%= f.text_field :department %>
   </div>
+    <div class="field">
+      <%= f.label :section_id %><br>
+      <%= f.collection_check_boxes(:section_ids, @sections, :id, :crn) %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

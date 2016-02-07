@@ -20,5 +20,12 @@
   <%= @professor.department %>
 </p>
 
+<p><strong>Sections Teaching:</strong></p>
+<ul>
+  <% @professor.sections.each do |section| %>
+      <li><%= section.crn %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_professor_path(@professor) %> |
 <%= link_to 'Back', professors_path %>

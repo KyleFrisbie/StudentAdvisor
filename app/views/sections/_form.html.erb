@@ -54,7 +54,12 @@
     <div class="field">
       <%= f.label :course_id %><br>
       <%= f.select(:course_id,
-          options_from_collection_for_select(Course.all, :id, :name)) %>
+                   options_from_collection_for_select(Course.all, :id, :name)) %>
+    </div>
+    <div class="field">
+      <%= f.label :professor_id %><br>
+      <%= f.select(:professor_id,
+                   options_from_collection_for_select(Professor.all, :id, :last_name)) %>
     </div>
     <div class="field">
       <%= f.label :student_id %><br>

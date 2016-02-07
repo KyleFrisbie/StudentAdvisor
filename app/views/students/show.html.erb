@@ -27,5 +27,30 @@
   <% end %>
 </ul>
 
+<table>
+  <tr>
+    <th>CRN</th>
+    <th>Name</th>
+    <th>Professor</th>
+    <th>Building</th>
+    <th>Room</th>
+    <th>Days</th>
+    <th>Time</th>
+    <th>Dates</th>
+  </tr>
+  <% @student.sections.each do |section| %>
+      <td><%= section.crn %></td>
+      <td><%= section.course.name %></td>
+      <td><%= section.professor.last_name %></td>
+      <td><%= section.building %></td>
+      <td><%= section.room %></td>
+      <td><%= section.days %></td>
+      <td><%= section.start_time %> -<br>
+        <%= section.end_time %></td>
+      <td><%= section.start_date %> -<br>
+        <%= section.end_date %></td>
+  <% end %>
+</table>
+
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

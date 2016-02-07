@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Course:</strong>
-  <%= @section.course_id %>
+  <strong>Crn:</strong>
+  <%= @section.crn %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @section.course.name %>
 </p>
 
 <p>
   <strong>Professor:</strong>
-  <%= @section.professor_id %>
-</p>
-
-<p>
-  <strong>Crn:</strong>
-  <%= @section.crn %>
+  <%= @section.professor.last_name %>, <%= @section.professor.first_name %>
 </p>
 
 <p>
