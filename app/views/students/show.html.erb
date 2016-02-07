@@ -20,5 +20,12 @@
   <%= @student.major %>
 </p>
 
+<p><strong>Registered Courses:</strong></p>
+<ul>
+  <% @student.sections.each do |section| %>
+      <li><%= section.crn %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

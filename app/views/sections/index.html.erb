@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Course</th>
+      <th>Name</th>
       <th>Professor</th>
       <th>Crn</th>
       <th>Building</th>
@@ -21,6 +22,7 @@
     <% @sections.each do |section| %>
       <tr>
         <td><%= section.course_id %></td>
+        <td><%= section.course.name %></td>
         <td><%= section.professor_id %></td>
         <td><%= section.crn %></td>
         <td><%= section.building %></td>

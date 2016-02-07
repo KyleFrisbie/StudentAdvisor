@@ -52,6 +52,11 @@
       <%= f.text_field :days %>
     </div>
     <div class="field">
+      <%= f.label :course_id %><br>
+      <%= f.select(:course_id,
+          options_from_collection_for_select(Course.all, :id, :name)) %>
+    </div>
+    <div class="field">
       <%= f.label :student_id %><br>
       <%= f.collection_check_boxes(:student_ids, @students, :id, :first_name) %>
     </div>
