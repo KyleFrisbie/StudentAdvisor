@@ -15,10 +15,12 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @course = Course.new
+    @sections = Section.all
   end
 
   # GET /courses/1/edit
   def edit
+    @sections = Section.all
   end
 
   # POST /courses
@@ -69,6 +71,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :department, :code)
+      params.require(:course).permit(:name, :department, :code, :section_ids => [])
     end
 end

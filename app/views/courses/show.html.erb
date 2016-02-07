@@ -15,5 +15,12 @@
   <%= @course.code %>
 </p>
 
+<p><strong>Sections:</strong></p>
+<ul>
+  <% @course.sections.each do |section| %>
+    <li><%= section.crn %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
