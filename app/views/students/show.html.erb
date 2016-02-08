@@ -21,13 +21,9 @@
 </p>
 
 <p><strong>Registered Courses:</strong></p>
-<ul>
-  <% @student.sections.each do |section| %>
-      <li><%= section.crn %></li>
-  <% end %>
-</ul>
 
-<table>
+<table class="table table-striped">
+  <thead>
   <tr>
     <th>CRN</th>
     <th>Name</th>
@@ -38,6 +34,8 @@
     <th>Time</th>
     <th>Dates</th>
   </tr>
+  </thead>
+  <tbody>
   <% @student.sections.each do |section| %>
       <td><%= section.crn %></td>
       <td><%= section.course.name %></td>
@@ -50,7 +48,11 @@
       <td><%= section.start_date %> -<br>
         <%= section.end_date %></td>
   <% end %>
+  </tbody>
 </table>
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+
+<div class="btn-group">
+  <%= link_to 'Edit', edit_student_path(@student), :class => 'btn btn-info' %>
+  <%= link_to 'Back', students_path, :class => 'btn btn-default' %>
+</div>
