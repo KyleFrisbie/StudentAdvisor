@@ -16,11 +16,38 @@
 </p>
 
 <p><strong>Sections:</strong></p>
-<ul>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>CRN</th>
+    <th>Name</th>
+    <th>Professor</th>
+    <th>Building</th>
+    <th>Room</th>
+    <th>Days</th>
+    <th>Time</th>
+    <th>Dates</th>
+  </tr>
+  </thead>
+  <tbody>
   <% @course.sections.each do |section| %>
-    <li><%= section.crn %></li>
+      <tr>
+        <td><%= section.crn %></td>
+        <td><%= section.course.name %></td>
+        <td><%= section.professor.last_name %></td>
+        <td><%= section.building %></td>
+        <td><%= section.room %></td>
+        <td><%= section.days %></td>
+        <td><%= section.start_time %> -<br>
+          <%= section.end_time %></td>
+        <td><%= section.start_date %> -<br>
+          <%= section.end_date %></td>
+      </tr>
   <% end %>
-</ul>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<div class="btn btn-group">
+  <%= link_to 'Edit', edit_course_path(@course), :class => 'btn btn-info' %>
+  <%= link_to 'Back', courses_path, :class => 'btn btn-default' %>
+</div>

@@ -1,4 +1,4 @@
-<%= form_for(@section) do |f| %>
+<%= simple_form_for(@section, html: {class: 'form-horizontal'}) do |f| %>
     <% if @section.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@section.errors.count, "error") %> prohibited this section from being saved:</h2>
@@ -11,61 +11,16 @@
         </div>
     <% end %>
 
-    <div class="field">
-      <%= f.label :course_id %><br>
-      <%= f.number_field :course_id %>
-    </div>
-    <div class="field">
-      <%= f.label :professor_id %><br>
-      <%= f.number_field :professor_id %>
-    </div>
-    <div class="field">
-      <%= f.label :crn %><br>
-      <%= f.number_field :crn %>
-    </div>
-    <div class="field">
-      <%= f.label :building %><br>
-      <%= f.text_field :building %>
-    </div>
-    <div class="field">
-      <%= f.label :room %><br>
-      <%= f.text_field :room %>
-    </div>
-    <div class="field">
-      <%= f.label :start_time %><br>
-      <%= f.time_select :start_time %>
-    </div>
-    <div class="field">
-      <%= f.label :end_time %><br>
-      <%= f.time_select :end_time %>
-    </div>
-    <div class="field">
-      <%= f.label :start_date %><br>
-      <%= f.date_select :start_date %>
-    </div>
-    <div class="field">
-      <%= f.label :end_date %><br>
-      <%= f.date_select :end_date %>
-    </div>
-    <div class="field">
-      <%= f.label :days %><br>
-      <%= f.text_field :days %>
-    </div>
-    <div class="field">
-      <%= f.label :course_id %><br>
-      <%= f.select(:course_id,
-                   options_from_collection_for_select(Course.all, :id, :name)) %>
-    </div>
-    <div class="field">
-      <%= f.label :professor_id %><br>
-      <%= f.select(:professor_id,
-                   options_from_collection_for_select(Professor.all, :id, :last_name)) %>
-    </div>
-    <div class="field">
-      <%= f.label :student_id %><br>
-      <%= f.collection_check_boxes(:student_ids, @students, :id, :first_name) %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+    <%= f.input :crn %>
+    <%= f.input :building %>
+    <%= f.input :room %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :days %>
+    <%= f.association :course %>
+    <%= f.association :professor, label_method: :last_name %>
+    <%= f.association :students, label_method: :last_name %>
+    <%= f.button :submit %>
 <% end %>

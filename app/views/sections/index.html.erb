@@ -32,9 +32,13 @@
         <td><%= section.start_date %></td>
         <td><%= section.end_date %></td>
         <td><%= section.days %></td>
-        <td><button type="button" class="btn btn-primary"><%= link_to 'Show', section %></button></td>
-        <td><button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_section_path(section) %></button></td>
-        <td><button type="button" class="btn btn-danger"><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        <td>
+          <div class="btn-group">
+            <%= link_to 'Show', section, :class => 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_section_path(section), :class => 'btn btn-warning' %>
+            <%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +46,4 @@
 
 <br>
 
-<button type="button" class="btn btn-default"><%= link_to 'New Section', new_section_path %></button>
+<%= link_to 'New Section', new_section_path, :class => 'btn btn-default' %>

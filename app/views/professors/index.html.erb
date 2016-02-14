@@ -1,6 +1,6 @@
 <h1>Listing professors</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>First name</th>
@@ -17,10 +17,13 @@
         <td><%= professor.first_name %></td>
         <td><%= professor.last_name %></td>
         <td><%= professor.record_number %></td>
-        <td><%= professor.department %></td>
-        <td><%= link_to 'Show', professor %></td>
-        <td><%= link_to 'Edit', edit_professor_path(professor) %></td>
-        <td><%= link_to 'Destroy', professor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <div class="btn-group">
+            <%= link_to 'Show', professor, :class => 'btn btn-primary' %>
+            <%= link_to 'Edit', edit_professor_path(professor), :class => 'btn btn-warning' %>
+            <%= link_to 'Destroy', professor, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +31,4 @@
 
 <br>
 
-<%= link_to 'New Professor', new_professor_path %>
+<%= link_to 'New Professor', new_professor_path, :class => 'btn btn-default' %>
